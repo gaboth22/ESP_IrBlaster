@@ -21,7 +21,7 @@ Well, a typical message would look like such:
  'data':<desired_hex_code>,
  'length':<numb_of_bytes>,
  'repeat':<numb_of_times>,
- 'delay':<delay>'}
+ 'delay':<delay>}
 ```
 
 So a little more explanation:
