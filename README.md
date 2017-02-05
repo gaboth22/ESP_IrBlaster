@@ -16,7 +16,9 @@ The idea is that you scan for IR codes with an Arduino, or maybe another ESP boa
 
 #### So what does that JSON look like?
 Well, a typical message would look like such:
-{'protocol':<desired_protocol>,'data':,<desired_hex_code>,'length':<numb_of_bytes>,'repeat':<numb_of_times>,'delay':<delay>'}
+``` json
+{'protocol':<desired_protocol>,'data':<desired_hex_code>,'length':<numb_of_bytes>,'repeat':<numb_of_times>,'delay':<delay>'}
+```
 
 So a little more explanation:
 
@@ -43,6 +45,7 @@ So after you figure out your boards IP address, send a request to it to /irdata,
 import requests
 from collections import OrderedDict
 import json
+# replace <prot> with the actual protocol, <data> with actual data, and <length> with actual length
 payload = OrderedDict([('protocol',<prot>),('data',<data>),('length'<length>),('repeat':1),('delay',50)])
 headers = {'Content-Type':'application/json'}
 r = requests.post("http://<esp_ip>",headers=headers,data=json.dumps(payload))
