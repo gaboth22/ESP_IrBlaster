@@ -39,14 +39,16 @@ Then, once connected to the wifi, you do need to figure out the ESP's local IP. 
 I use Python, and the [requests library](http://docs.python-requests.org/en/master/ "requests website") which allows you to quickly send an http requests.
 So after you figure out your boards IP address, send a request to it to /irdata, like so:
 
->>> import requests
->>> from collections import OrderedDict
->>> import json
->>> payload = OrderedDict([('protocol',<prot>),('data',<data>),('length'<length>),('repeat':1),('delay',50)])
->>> headers = {'Content-Type':'application/json'}
->>> r = requests.post("http://<esp_ip>",headers=headers,data=json.dumps(payload))
->>> r.status_code
->>> r.text
+```python
+import requests
+from collections import OrderedDict
+import json
+payload = OrderedDict([('protocol',<prot>),('data',<data>),('length'<length>),('repeat':1),('delay',50)])
+headers = {'Content-Type':'application/json'}
+r = requests.post("http://<esp_ip>",headers=headers,data=json.dumps(payload))
+print r.status_code
+print r.text
+```
 
 If all went well, and communication witht eh ESP went well, r.status_code should return 200, and r.text should return u'Received IR code.'
 
