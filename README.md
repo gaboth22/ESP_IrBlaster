@@ -1,5 +1,5 @@
 # ESP_IrBlaster
-This is code that implements a generic IR blaster -- Or as generic as it is for now -- usign only an ESP8266 board (Well, also some resistors, wires, and an IR LED)
+This is code that implements a generic IR blaster -- Or as generic as it is for now -- using only an ESP8266 board (Well, also some resistors, wires, and an IR LED)
 
 # Requirements
 ### IRremoteESP8266 library:
