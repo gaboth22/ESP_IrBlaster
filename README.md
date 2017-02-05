@@ -26,15 +26,15 @@ Well, a typical message would look like such:
 
 So a little more explanation:
 
-The 'protocol' field basically get switched (more like an if statement), for the supported protocol by the current IR Remote library. I have only tested Sony, since that's the tv I have :/ so the other ones need to be tested, and/or added as needed.
+The 'protocol' field (this is a string) basically get switched (more like an if statement), for the supported protocol by the current IR Remote library. I have only tested Sony, since that's the tv I have :/ so the other ones need to be tested, and/or added as needed.
 
-The 'data' field get passed as received, there are no checks for validity, it will be a hex value (or int, or your pick), and will look something like 0xa90 (turn on/off code for Sony) -- or at least it does for my TV, and get decoded as Sony from IR lib.
+The 'data' (this is an int) field get passed as received, there are no checks for validity, it will be a hex value (or int, or your pick), and will look something like 0xa90 (turn on/off code for Sony) -- or at least it does for my TV, and get decoded as Sony from IR lib.
 
-The 'length' field is the lenght of the data being passed, for example 0xa90 is 12 bits long -- Don't worry about this, IR lib will tell you the length :D.
+The 'length' (this is an int)  field is the lenght of the data being passed, for example 0xa90 is 12 bits long -- Don't worry about this, IR lib will tell you the length :D.
 
-The 'repeat' field determines how many times that command will be sent -- Let's say you wanna put the volume up. You wouldn't wanna send 30 requests. So instead, just tell the ESP to send the command 30 times, throught the repeat field.
+The 'repeat' (this is an int)  field determines how many times that command will be sent -- Let's say you wanna put the volume up. You wouldn't wanna send 30 requests. So instead, just tell the ESP to send the command 30 times, throught the repeat field.
 
-The 'delay' field is the delay between repetition of commands being send, and it means milliseconds. Let's say you wanna send a command 30 times, if you have no delay in between, it will not get registered by the TV as several button presses. So you gotta give it a delay -- 50 ms has worked for me.
+The 'delay' (this is an int)  field is the delay between repetition of commands being send, and it means milliseconds. Let's say you wanna send a command 30 times, if you have no delay in between, it will not get registered by the TV as several button presses. So you gotta give it a delay -- 50 ms has worked for me.
 
 # Some more insight
 The idea, like I mentioned is that you don't have to reflash your board everytime something changes -- like the code you wanna send, or your WIFI name, or password. So we're using WiFiManager, which is a masterpiece -- it attempts to connect to wifi using the credentials that were used the last time a connections was established, and if that connection fails, it goes into AP mode, and broadcasts itself as a WiFi access point, called ESP_IrBlaster (You can change this), and if you do it through a mobile device, as soon as you connect to the wifi, it will prompt you to a site that allows you to scan for networks, and set the new credentials. Refer [here](https://tzapu.com/esp8266-wifi-connection-manager-library-arduino-ide/ "tzapu blog") for more information.
@@ -50,7 +50,7 @@ import requests
 from collections import OrderedDict
 import json
 # replace <prot> with the actual protocol, <data> with actual data, and <length> with actual length
-payload = OrderedDict([('protocol',<prot>),('data',<data>),('length'<length>),('repeat':1),('delay',50)])
+payload = OrderedDict([('protocol',<prot>),('data',<data>),('length'<length>),('repeat',1),('delay',50)])
 headers = {'Content-Type':'application/json'}
 r = requests.post("http://<esp_ip>",headers=headers,data=json.dumps(payload))
 print r.status_code
