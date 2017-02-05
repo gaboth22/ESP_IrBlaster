@@ -16,7 +16,7 @@ The idea is that you scan for IR codes with an Arduino, or maybe another ESP boa
 
 #### So what does that JSON look like?
 Well, a typical message would look like such:
-``` json
+```
 {'protocol':<desired_protocol>,
  'data':<desired_hex_code>,
  'length':<numb_of_bytes>,
