@@ -55,7 +55,7 @@ payload = OrderedDict([('protocol',<prot>),('data',<data>),('length',<length>),(
 # payload = OrderedDict([('protocol','sony'),('data',0xa90),('length',12),('repeat',1),('delay',200)])
 headers = {'Content-Type':'application/json'}
 # Replace <esp_ip> with your boards IP address. Should be something like 192.168.0.0
-r = requests.post("http://<esp_ip>",headers=headers,data=json.dumps(payload))
+r = requests.post("http://<esp_ip>/irdata",headers=headers,data=json.dumps(payload))
 print r.status_code
 print r.text
 ```
