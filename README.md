@@ -34,7 +34,7 @@ The 'length' (this is an int)  field is the lenght of the data being passed, for
 
 The 'repeat' (this is an int)  field determines how many times that command will be sent -- Let's say you wanna put the volume up. You wouldn't wanna send 30 requests. So instead, just tell the ESP to send the command 30 times, through the repeat field.
 
-The 'delay' (this is an int)  field is the delay between repetition of commands being send, and it means milliseconds. Let's say you wanna send a command 30 times, if you have no delay in between, it will not get registered by the TV as several button presses. So you gotta give it a delay -- 50 ms has worked for me.
+The 'delay' (this is an int)  field is the delay between repetition of commands being send, and it means milliseconds. Let's say you wanna send a command 30 times, if you have no delay in between, it will not get registered by the TV as several button presses. So you gotta give it a delay -- 200 ms has worked for me.
 
 # Some more insight
 The idea, like I mentioned is that you don't have to reflash your board everytime something changes -- like the code you wanna send, or your WIFI name, or password. So we're using WiFiManager, which is a masterpiece -- it attempts to connect to wifi using the credentials that were used the last time a connections was established, and if that connection fails, it goes into AP mode, and broadcasts itself as a WiFi access point, called ESP_IrBlaster (You can change this), and if you do it through a mobile device, as soon as you connect to the wifi, it will prompt you to a site that allows you to scan for networks, and set the new credentials. Refer [here](https://tzapu.com/esp8266-wifi-connection-manager-library-arduino-ide/ "tzapu blog") for more information.
