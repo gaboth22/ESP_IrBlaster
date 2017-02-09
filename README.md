@@ -50,7 +50,9 @@ import requests
 from collections import OrderedDict
 import json
 # replace <prot> with the actual protocol, <data> with actual data, and <length> with actual length
-payload = OrderedDict([('protocol',<prot>),('data',<data>),('length'<length>),('repeat',1),('delay',50)])
+payload = OrderedDict([('protocol',<prot>),('data',<data>),('length',<length>),('repeat',1),('delay',200)])
+# For my Sony turn on command, it looks like this:
+# payload = OrderedDict([('protocol','sony'),('data',0xa90),('length',12),('repeat',1),('delay',200)])
 headers = {'Content-Type':'application/json'}
 r = requests.post("http://<esp_ip>",headers=headers,data=json.dumps(payload))
 print r.status_code
