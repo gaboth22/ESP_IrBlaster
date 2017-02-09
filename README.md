@@ -54,6 +54,7 @@ payload = OrderedDict([('protocol',<prot>),('data',<data>),('length',<length>),(
 # For my Sony turn on command, it looks like this:
 # payload = OrderedDict([('protocol','sony'),('data',0xa90),('length',12),('repeat',1),('delay',200)])
 headers = {'Content-Type':'application/json'}
+# Replace <esp_ip> with your boards IP address. Should be something like 192.168.0.0
 r = requests.post("http://<esp_ip>",headers=headers,data=json.dumps(payload))
 print r.status_code
 print r.text
@@ -62,6 +63,6 @@ print r.text
 If all went well, and communication witht eh ESP went well, r.status_code should return 200, and r.text should return u'Received IR code.'
 
 # Some Ideas:
-It is very easy to exted this to work with, say, and Amazon echo. In fact, I am doing it. Just use [this Python script](https://github.com/makermusings/fauxmo "WeMo switch emulation") -- gotta fix dbg statements on line 304, 310, and 314 if you get an error. The dbg() methos takes only one argument, but two are passed, so just delete the ',e' from it, or comment out the message all together if you prefer. Then you can easily set up another simple server to send requests to you ESP board.
+It is very easy to exted this to work with, say, and Amazon echo. In fact, I am doing it. Just use [this Python script](https://github.com/makermusings/fauxmo "WeMo switch emulation") -- gotta fix dbg statements on line 304, 310, and 314 if you get an error. The dbg() method takes only one argument, but two are passed, so just delete the ',e' from it, or comment out the message all together if you prefer. Then you can easily set up another simple server to send requests to you ESP board.
 
 # Enjoy!
