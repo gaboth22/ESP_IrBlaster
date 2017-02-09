@@ -32,7 +32,7 @@ The 'data' (this is an int) field get passed as received, there are no checks fo
 
 The 'length' (this is an int)  field is the lenght of the data being passed, for example 0xa90 is 12 bits long -- Don't worry about this, IR lib will tell you the length :D.
 
-The 'repeat' (this is an int)  field determines how many times that command will be sent -- Let's say you wanna put the volume up. You wouldn't wanna send 30 requests. So instead, just tell the ESP to send the command 30 times, throught the repeat field.
+The 'repeat' (this is an int)  field determines how many times that command will be sent -- Let's say you wanna put the volume up. You wouldn't wanna send 30 requests. So instead, just tell the ESP to send the command 30 times, through the repeat field.
 
 The 'delay' (this is an int)  field is the delay between repetition of commands being send, and it means milliseconds. Let's say you wanna send a command 30 times, if you have no delay in between, it will not get registered by the TV as several button presses. So you gotta give it a delay -- 50 ms has worked for me.
 
