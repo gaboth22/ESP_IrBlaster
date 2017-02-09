@@ -12,14 +12,14 @@ https://github.com/bblanchon/ArduinoJson It is currently working with commit db9
 https://github.com/tzapu/WiFiManager It is currently working with commit 8ffb4cbfa9d1c065915924fa8956199eadf9b2a3 -- or https://github.com/tzapu/WiFiManager/tree/8ffb4cbfa9d1c065915924fa8956199eadf9b2a3
 
 # What's the idea?
-The idea is that you scan for IR codes with an Arduino, or maybe another ESP board, and get the protocol, and hex code (no support for raw data, since I didnt need it, but should be so hard to add) and send it to the board as a JSON message, that the board parses to send the IR data.
+The idea is that you scan for IR codes with an Arduino, or maybe another ESP board, and get the protocol, and hex code (no support for raw data, since I didnt need it, but should not be so hard to add) and send it to the board as a JSON message, that the board parses to send the IR data.
 
 #### So what does that JSON look like?
 Well, a typical message would look like such:
 ```
 {'protocol':<desired_protocol>,
  'data':<desired_hex_code>,
- 'length':<numb_of_bytes>,
+ 'length':<numb_of_bits>,
  'repeat':<numb_of_times>,
  'delay':<delay>}
 ```
