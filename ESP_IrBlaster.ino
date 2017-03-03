@@ -15,7 +15,7 @@ void setup()
     wifiManager.autoConnect("ESP_IrBlaster");
     Serial.println("Succesfully connected to network.");
 
-    server.on("/irdata",handleIrDataRequest);
+    server.on("/irdata", handleIrDataRequest);
     server.begin();
 
     irSender.begin();
