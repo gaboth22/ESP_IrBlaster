@@ -49,22 +49,22 @@ void handleIrDataRequest()
   Serial.print("repeat:" );
   Serial.println(repeat);
 
-  if(strcmp(protocol,"sony") == 0)
+  if(strcmp(protocol, "sony") == 0)
   {
     Serial.println("Sending Sony ir code...");
-    for(int i=0; i<repeat;i++)
+    for(int i=0; i<repeat; i++)
     {
-      irSender.sendSony(irData,irLength);
+      irSender.sendSony(irData, irLength);
       delay(delayms);
     }
   }
 
-  else if(strcmp(protocol,"somsung") == 0)
+  else if(strcmp(protocol, "samsung") == 0)
   {
     Serial.println("Sending Samsung ir code...");
-    for(int i=0; i<repeat;i++)
+    for(int i=0; i<repeat; i++)
     {
-      irSender.sendSAMSUNG(irData,irLength);
+      irSender.sendSAMSUNG(irData, irLength);
       delay(delayms);
     }
   }
@@ -72,9 +72,9 @@ void handleIrDataRequest()
   else if(strcmp(protocol,"lg") == 0)
   {
     Serial.println("Sending LG ir code...");
-    for(int i=0; i<repeat;i++)
+    for(int i=0; i<repeat; i++)
     {
-      irSender.sendLG(irData,irLength);
+      irSender.sendLG(irData, irLength);
       delay(delayms);
     }
   }
@@ -82,9 +82,9 @@ void handleIrDataRequest()
   else if(strcmp(protocol,"nec") == 0)
   {
     Serial.println("Sending NEC ir code...");
-    for(int i=0; i<repeat;i++)
+    for(int i=0; i<repeat; i++)
     {
-      irSender.sendNEC(irData,irLength);
+      irSender.sendNEC(irData, irLength);
       delay(delayms);
     }
   }
